@@ -1,3 +1,34 @@
+# Submission Details
+
+- Application IP:
+
+ `% kubectl get services simple-jwt-api -o wide`
+
+NAME             TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE   SE
+LECTOR
+simple-jwt-api   LoadBalancer   10.100.111.44   aaf59b0c3adc6470187157d541adb8d4-312585662.us-east-2.elb.amazonaws.com   80:32633/TCP   63s   app=simple-jwt-api
+
+- Test:
+
+ % export URL="aaf59b0c3adc6470187157d541adb8d4-312585662.us-east-2.elb.amazonaws.com"
+
+ % export TOKEN=`curl -d '{"email":"test@test.com","password":"test"}' -H "Content-Type: application/json" -X POST $URL/auth  | jq -r '.token'`
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   216  100   173  100    43   1281    318 --:--:-- --:--:-- --:--:--  1600
+ % curl --request GET $URL:80/contents -H "Authorization: Bearer ${TOKEN}" | jq
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    60  100    60    0     0    789      0 --:--:-- --:--:-- --:--:--   789
+{
+  "email": "test@test.com",
+  "exp": 1650219978,
+  "nbf": 1649010378
+}
+
+
 # Deploying a Flask API
 
 This is the project starter repo for the course Server Deployment, Containerization, and Testing.
