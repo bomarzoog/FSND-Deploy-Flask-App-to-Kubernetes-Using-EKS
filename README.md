@@ -19,6 +19,8 @@ simple-jwt-api   LoadBalancer   10.100.111.44   aaf59b0c3adc6470187157d541adb8d4
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   216  100   173  100    43   1281    318 --:--:-- --:--:-- --:--:--  1600
+
+
  % curl --request GET $URL:80/contents -H "Authorization: Bearer ${TOKEN}" | jq
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
