@@ -11,7 +11,7 @@ simple-jwt-api   LoadBalancer   10.100.111.44   aaf59b0c3adc6470187157d541adb8d4
 ```
 
 - Test:
-
+```
  % export URL="aaf59b0c3adc6470187157d541adb8d4-312585662.us-east-2.elb.amazonaws.com"
 
  % export TOKEN=`curl -d '{"email":"test@test.com","password":"test"}' -H "Content-Type: application/json" -X POST $URL/auth  | jq -r '.token'`
@@ -29,7 +29,7 @@ simple-jwt-api   LoadBalancer   10.100.111.44   aaf59b0c3adc6470187157d541adb8d4
   "exp": 1650219978,
   "nbf": 1649010378
 }
-
+```
 
 # Deploying a Flask API
 
