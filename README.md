@@ -2,11 +2,13 @@
 
 - Application IP:
 
- `% kubectl get services simple-jwt-api -o wide`
+ ```
+ % kubectl get services simple-jwt-api -o wide
 
 NAME             TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE   SE
 LECTOR
 simple-jwt-api   LoadBalancer   10.100.111.44   aaf59b0c3adc6470187157d541adb8d4-312585662.us-east-2.elb.amazonaws.com   80:32633/TCP   63s   app=simple-jwt-api
+```
 
 - Test:
 
